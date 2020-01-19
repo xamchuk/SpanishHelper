@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AllWordsSectionHeaderView" customModule="SpanishHelper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-xS-dQA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7v6-kC-3Cx" customClass="RoundedView" customModule="SpanishHelper" customModuleProvider="target">
+                            <rect key="frame" x="16" y="4" width="382" height="810"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label(20 words)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUx-rj-1hG">
+                                    <rect key="frame" x="64" y="4" width="137" height="42"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="aC8-oZ-Wo7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-h1-8C6">
+                                    <rect key="frame" x="338" y="394" width="20" height="22"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ep8-Yi-Hmn">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
+                                            <state key="normal" image="menuButton"/>
+                                            <connections>
+                                                <action selector="menuDidTap:" destination="-1" eventType="touchUpInside" id="aal-92-jah"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.24423447249999999" green="0.43993204829999999" blue="0.38038653140000001" alpha="0.70649614726027399" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="bpg-h1-8C6" secondAttribute="trailing" constant="24" id="TNe-VI-7iq"/>
+                                <constraint firstItem="bpg-h1-8C6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MUx-rj-1hG" secondAttribute="trailing" constant="8" id="TZL-ON-k02"/>
+                                <constraint firstItem="bpg-h1-8C6" firstAttribute="centerY" secondItem="7v6-kC-3Cx" secondAttribute="centerY" id="TmQ-WK-Ffq"/>
+                                <constraint firstItem="MUx-rj-1hG" firstAttribute="top" secondItem="7v6-kC-3Cx" secondAttribute="top" constant="4" id="V7K-gp-Wv4"/>
+                                <constraint firstItem="MUx-rj-1hG" firstAttribute="leading" secondItem="7v6-kC-3Cx" secondAttribute="leading" constant="64" id="VIT-7p-WIV"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MUx-rj-1hG" secondAttribute="bottom" constant="4" id="sxj-h7-IP6"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7v6-kC-3Cx" firstAttribute="leading" secondItem="eR2-xS-dQA" secondAttribute="leading" constant="16" id="7fJ-dv-GW5"/>
+                        <constraint firstItem="7v6-kC-3Cx" firstAttribute="top" secondItem="eR2-xS-dQA" secondAttribute="top" constant="4" id="CZa-xa-NsS"/>
+                        <constraint firstAttribute="trailing" secondItem="7v6-kC-3Cx" secondAttribute="trailing" constant="16" id="Xgs-qH-ytf"/>
+                        <constraint firstAttribute="bottom" secondItem="7v6-kC-3Cx" secondAttribute="bottom" constant="4" id="lOF-dN-dch"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="eR2-xS-dQA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1qg-Gj-sz1"/>
+                <constraint firstItem="eR2-xS-dQA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="31w-jk-MSR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eR2-xS-dQA" secondAttribute="bottom" id="pNk-4N-zgN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eR2-xS-dQA" secondAttribute="trailing" id="xW3-rF-q5C"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="titleLabel" destination="MUx-rj-1hG" id="Z7K-ha-mnR"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="141.96428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menuButton" width="20" height="12"/>
+    </resources>
+</document>

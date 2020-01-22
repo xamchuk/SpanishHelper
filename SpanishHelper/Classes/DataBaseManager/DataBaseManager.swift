@@ -13,9 +13,9 @@ final class DataBaseManager: NSObject {
     
     func addNewWord(word: Word) {
         let realm = try! Realm()
-              try! realm.write {
-                realm.add(word, update: .all)
-              }
+        try! realm.write {
+            realm.add(word, update: .all)
+        }
     }
     
     func addNewWordToGroup(word: Word, group: Group) {
@@ -34,7 +34,7 @@ final class DataBaseManager: NSObject {
     func getAllGroups() -> [Group] {
         let realm = try! Realm()
         let groups = Array(realm.objects(Group.self))
-       // var allGroups = [Group]()
+        // var allGroups = [Group]()
         return groups
     }
     
@@ -50,6 +50,13 @@ final class DataBaseManager: NSObject {
         try! realm.write {
             realm.delete(group, cascading: true)
         }
-        
     }
+    
+    func updateGroupTitle(group: Group, newTitle: String) {
+        let realm = try! Realm()
+        try! realm.write {
+            group.title = newTitle
+        }
+    }
+    
 }

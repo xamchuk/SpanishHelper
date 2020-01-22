@@ -11,8 +11,8 @@ import UIKit
 final class AllWordsCell: UITableViewCell {
     
     // MARK: - Views
-    @IBOutlet weak var spanishWordLabel: UILabel!
-    @IBOutlet weak var translationWordLabel: UILabel!
+    @IBOutlet weak private var spanishWordLabel: UILabel!
+    @IBOutlet weak private var translationWordLabel: UILabel!
     
     // MARK: - Methods
     func set(content: Word) {

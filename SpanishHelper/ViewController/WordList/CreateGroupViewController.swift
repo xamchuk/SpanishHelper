@@ -10,10 +10,9 @@ import UIKit
 
 final class CreateGroupViewController: UIViewController, Storyboarded {
     
-    
     // MARK: - Views
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet weak private var createButton: UIButton!
     
     // MARK: - Properties
     var createGroup: ((String) -> Void)?
@@ -34,18 +33,18 @@ final class CreateGroupViewController: UIViewController, Storyboarded {
     }
     
     // MARK: - Actions
-    @IBAction func didEditTextField(_ sender: UITextField) {
+    @IBAction private func didEditTextField(_ sender: UITextField) {
         guard let text = sender.text else { return }
         createButton.isEnabled = text.count >= 1
     }
     
-    @IBAction func createDidTap(_ sender: Any) {
+    @IBAction private func createDidTap(_ sender: Any) {
         guard let text = textField.text else { return }
         createGroup?(text)
         dismisViewController()
     }
     
-    @IBAction func closeTapped(_ sender: Any) {
+    @IBAction private func closeTapped(_ sender: Any) {
         textField.resignFirstResponder()
         dismisViewController()
     }
@@ -60,6 +59,7 @@ final class CreateGroupViewController: UIViewController, Storyboarded {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension CreateGroupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         createDidTap(UIButton())

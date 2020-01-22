@@ -10,14 +10,17 @@ import UIKit
 
 final class MainCoordinator: Coordinator {
     
+    // MARK: - Properties
     var childCoordinator: [Coordinator] = []
     
     var navigationController: UINavigationController
     
+    // MARK: - Init
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
+    // MARK: - Methods
     func start() {
         let vc = ViewController.instantiate()
         vc.coordinator = self
@@ -33,13 +36,15 @@ final class MainCoordinator: Coordinator {
     
     func presentGroupMenu(viewController: WordListViewController, at index: Int) {
         let vc = GroupMenuPopUpController.instantiate()
+        vc.title = viewController.viewModel.data[index].title ?? ""
         viewController.present(vc, animated: false)
+        
         vc.addNewWord = { word, translation in
             viewController.viewModel.addNewWord(word: word, translation: translation, at: index)
         }
         
-        vc.renameGroup = {
-            print("rename")
+        vc.renameGroup = { newTitle in
+            viewController.viewModel.renameGroup(newTitle: newTitle, at: index)
         }
         
         vc.deleteGroup = {
@@ -53,6 +58,12 @@ final class MainCoordinator: Coordinator {
             viewController.viewModel.addNewGroup(title: $0)
         }
         viewController.present(vc, animated: false)
+    }
+    
+    func wordCheck() {
+        let vc = WordCheckViewController.instantiate()
+        vc.viewModel = WordCheckViewModel(dataBaseManager: DataBaseManager())
+        navigationController.pushViewController(vc, animated: true)
     }
     
     

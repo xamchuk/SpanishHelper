@@ -16,6 +16,7 @@ final class WordListViewModel {
     var didDeleteGroup: ((Int) -> Void)?
     var didAddNewGroup: ((Int) -> Void)?
     var didAddNewWord: ((IndexPath) -> Void)?
+    var didUpdateGroup: ((Int) -> Void)?
     
     // MARK: - Private Properties
     private var dataBaseManager: DataBaseManager
@@ -28,16 +29,14 @@ final class WordListViewModel {
     
     // MARK: - Public Methods
     func addNewWord(word: String, translation: String, at index: Int) {
-        let item = Word()
-        item.id = UUID().uuidString
-        item.title = word
-        item.translation = translation
+        let item = Word(id: UUID().uuidString, title: word, translation: translation)
         dataBaseManager.addNewWordToGroup(word: item, group: self.data[index])
         didAddNewWord?(IndexPath(item: data[index].words.count - 1, section: index))
     }
     
     func addNewGroup(title: String) {
         let newGroup = Group()
+        newGroup.id = UUID().uuidString
         newGroup.title = title
         dataBaseManager.addGroup(group: newGroup)
         self.data.append(newGroup)
@@ -53,4 +52,10 @@ final class WordListViewModel {
     func deleteWord(word: Word) {
         
     }
+    
+    func renameGroup(newTitle: String, at index: Int) {
+        dataBaseManager.updateGroupTitle(group: data[index], newTitle: newTitle)
+        didUpdateGroup?(index)
+    }
+    
 }

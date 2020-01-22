@@ -11,7 +11,7 @@ import UIKit
 final class AllWordsSectionHeaderView: UIView {
     
     // MARK: - Views
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
     
     // MARK: - Public Properties
     var showMenu: (() -> Void)?
@@ -22,7 +22,7 @@ final class AllWordsSectionHeaderView: UIView {
     }
     
     // MARK: - Action
-    @IBAction func menuDidTap(_ sender: Any) {
+    @IBAction private func menuDidTap(_ sender: Any) {
         showMenu?()
     }
 }

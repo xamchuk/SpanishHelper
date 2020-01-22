@@ -22,7 +22,7 @@ final class WordListViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
-        setupNavigationBar()
+        navigationController?.setupAppDefaultNavigationBar()
     }
     
     // MARK: - Action
@@ -31,15 +31,7 @@ final class WordListViewController: UIViewController, Storyboarded {
     }
     
     // MARK: - Private
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.1638157666, green: 0.445987463, blue: 0.3772965074, alpha: 0.7064961473), #colorLiteral(red: 0.1302538514, green: 0.3544732928, blue: 0.2995031178, alpha: 0.7593910531)], startPoint: .topLeft, endPoint: .bottomLeft)
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    }
+   
     
     private func setupViewModel() {
         viewModel.didDeleteGroup = { [weak self] section in
@@ -51,6 +43,10 @@ final class WordListViewController: UIViewController, Storyboarded {
         
         viewModel?.didAddNewWord = { [weak self] indexPath in
             self?.tableView.insertRows(at: [indexPath], with: .fade)
+        }
+        
+        viewModel?.didUpdateGroup = { [weak self] index in
+            self?.tableView.reloadSections(IndexSet(integer: index), with: .fade)
         }
     }
 }
@@ -72,6 +68,7 @@ extension WordListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension WordListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: AllWordsSectionHeaderView = .fromNib()

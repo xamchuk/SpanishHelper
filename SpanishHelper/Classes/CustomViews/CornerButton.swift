@@ -1,5 +1,5 @@
 //
-//  cornerButton.swift
+//  CornerButton.swift
 //  SpanishHelper
 //
 //  Created by Ruslan Khamskyi on 15.01.2020.

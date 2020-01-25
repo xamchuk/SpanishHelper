@@ -12,13 +12,15 @@ final class AllWordsSectionHeaderView: UIView {
     
     // MARK: - Views
     @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var menuButton: UIButton!
     
     // MARK: - Public Properties
     var showMenu: (() -> Void)?
     
     // MARK: - Init Method
-    func set(title: String?) {
+    func set(title: String?, menuIsHidden: Bool) {
         titleLabel.text = title
+        menuButton.isHidden = menuIsHidden
     }
     
     // MARK: - Action

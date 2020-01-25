@@ -11,17 +11,25 @@ import UIKit
 final class WordCheckCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Views
-    @IBOutlet weak var wordView: RoundedView!
-    @IBOutlet weak var translationView: RoundedView!
-    @IBOutlet weak var backgroundWordLabel: UILabel!
+    @IBOutlet weak private var wordView: RoundedView!
+    @IBOutlet weak private var translationView: RoundedView!
+    @IBOutlet weak private var backgroundWordLabel: UILabel!
     
-    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak private var wordLabel: UILabel!
+    @IBOutlet weak private var wordImageView: UIImageView!
     
-    @IBOutlet weak var backgroundTranslationLabel: UILabel!
-    @IBOutlet weak var translationLabel: UILabel!
+    @IBOutlet weak private var translationImageView: UIImageView!
+    @IBOutlet weak private var backgroundTranslationLabel: UILabel!
+    @IBOutlet weak private var translationLabel: UILabel!
     // MARK: - Properties
     
     // MARK: - Init
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        wordImageView.alpha = 0
+        translationImageView.alpha = 0
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         wordView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(flip)))
@@ -33,6 +41,17 @@ final class WordCheckCollectionViewCell: UICollectionViewCell {
         backgroundWordLabel.text = content.word
         translationLabel.text = content.translation
         backgroundTranslationLabel.text = content.translation
+    }
+    
+    func showAnimatedImage(isRightAnswer: Bool, completion: @escaping () -> Void) {
+       let rotationAngle: CGFloat = isRightAnswer ? 2 * CGFloat.pi : .pi
+        UIView.animate(withDuration: 0.8, animations: { [weak self] in
+            self?.wordImageView.alpha = 1
+            self?.translationImageView.alpha = 1
+            self?.wordImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        }) { (_) in
+            completion()
+        }
     }
     
     // MARK: - Action

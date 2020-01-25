@@ -10,6 +10,10 @@ import UIKit
 
 final class WordListViewController: UIViewController, Storyboarded {
     
+    enum State {
+        case allWords, withSelectedRow(word: Word?)
+    }
+    
     // MARK: - Views
     @IBOutlet weak private var tableView: UITableView!
     
@@ -17,13 +21,16 @@ final class WordListViewController: UIViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     
     var viewModel: WordListViewModel!
+    var state: State = .allWords
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
         navigationController?.setupAppDefaultNavigationBar()
+        setupState()
     }
+  
     
     // MARK: - Action
     @IBAction private func addDidTap(_ sender: Any) {
@@ -31,8 +38,6 @@ final class WordListViewController: UIViewController, Storyboarded {
     }
     
     // MARK: - Private
-   
-    
     private func setupViewModel() {
         viewModel.didDeleteGroup = { [weak self] section in
             self?.tableView.deleteSections(IndexSet(integer: section), with: .fade)
@@ -47,6 +52,18 @@ final class WordListViewController: UIViewController, Storyboarded {
         
         viewModel?.didUpdateGroup = { [weak self] index in
             self?.tableView.reloadSections(IndexSet(integer: index), with: .fade)
+        }
+    }
+    
+    private func setupState() {
+        switch state {
+        case .allWords: break
+        case .withSelectedRow(let word):
+            navigationItem.rightBarButtonItem = nil
+            guard let word = word else { return }
+            guard let indexGroup = viewModel.data.lastIndex(where: { $0 == word.group.first }) else { return }
+            guard let wordIndex = viewModel.data[indexGroup].words.lastIndex(where: { $0 == word }) else { return }
+            tableView.selectRow(at: IndexPath(row: wordIndex, section: indexGroup), animated: true, scrollPosition: .middle)
         }
     }
 }
@@ -72,7 +89,13 @@ extension WordListViewController: UITableViewDataSource {
 extension WordListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: AllWordsSectionHeaderView = .fromNib()
-        header.set(title: viewModel.data[section].title)
+        var menuIsHidden = false
+        switch state {
+        case .allWords: break
+        case .withSelectedRow: menuIsHidden = true
+        }
+      
+        header.set(title: viewModel.data[section].title, menuIsHidden: menuIsHidden)
         header.showMenu = { [weak self] in
             guard let self = self else { return }
             self.coordinator?.presentGroupMenu(viewController: self, at: section)

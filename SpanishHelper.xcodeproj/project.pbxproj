@@ -18,6 +18,7 @@
 		A34DB03923D6295A00DB8470 /* WordCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DB03823D6295A00DB8470 /* WordCheckViewModel.swift */; };
 		A34DB03B23D8B5E700DB8470 /* WordCheckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DB03A23D8B5E700DB8470 /* WordCheckCollectionViewCell.swift */; };
 		A34DB03E23D8B88200DB8470 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DB03D23D8B88200DB8470 /* UICollectionView+Reusable.swift */; };
+		A34DB04023DC75D000DB8470 /* WordCheckCollectionViewResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DB03F23DC75D000DB8470 /* WordCheckCollectionViewResultCell.swift */; };
 		A35F373C23CF7D3500BA1507 /* CornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35F373B23CF7D3500BA1507 /* CornerButton.swift */; };
 		A35F373E23CF7F7600BA1507 /* CornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35F373D23CF7F7600BA1507 /* CornerImageView.swift */; };
 		A35F374123CF8DC900BA1507 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35F374023CF8DC900BA1507 /* Coordinator.swift */; };
@@ -64,6 +65,7 @@
 		A34DB03823D6295A00DB8470 /* WordCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCheckViewModel.swift; sourceTree = "<group>"; };
 		A34DB03A23D8B5E700DB8470 /* WordCheckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCheckCollectionViewCell.swift; sourceTree = "<group>"; };
 		A34DB03D23D8B88200DB8470 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
+		A34DB03F23DC75D000DB8470 /* WordCheckCollectionViewResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCheckCollectionViewResultCell.swift; sourceTree = "<group>"; };
 		A35F373B23CF7D3500BA1507 /* CornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerButton.swift; sourceTree = "<group>"; };
 		A35F373D23CF7F7600BA1507 /* CornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImageView.swift; sourceTree = "<group>"; };
 		A35F374023CF8DC900BA1507 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A34DB03A23D8B5E700DB8470 /* WordCheckCollectionViewCell.swift */,
+				A34DB03F23DC75D000DB8470 /* WordCheckCollectionViewResultCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				A3E2EA4E23CBAD9900F61090 /* ViewController.swift in Sources */,
 				A35F377423D33A6F00BA1507 /* WordListViewModel.swift in Sources */,
 				A3946ED423D47C9E00695667 /* GroupMenuPopUpController.swift in Sources */,
+				A34DB04023DC75D000DB8470 /* WordCheckCollectionViewResultCell.swift in Sources */,
 				A34DB03923D6295A00DB8470 /* WordCheckViewModel.swift in Sources */,
 				A35F375123CF9BF400BA1507 /* UITableView+Reusable.swift in Sources */,
 				A35F374123CF8DC900BA1507 /* Coordinator.swift in Sources */,

@@ -27,9 +27,10 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showAllWords(viewModel: WordListViewModel) {
+    func showAllWords(for state: WordListViewController.State ) {
         let vc = WordListViewController.instantiate()
-        vc.viewModel = viewModel
+        vc.state = state
+        vc.viewModel = WordListViewModel(dataBaseManager: DataBaseManager())
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
@@ -62,6 +63,7 @@ final class MainCoordinator: Coordinator {
     
     func wordCheck() {
         let vc = WordCheckViewController.instantiate()
+        vc.coordinator = self
         vc.viewModel = WordCheckViewModel(dataBaseManager: DataBaseManager())
         navigationController.pushViewController(vc, animated: true)
     }

@@ -26,7 +26,7 @@ class ViewController: UIViewController, Storyboarded {
 
     // MARK: - Action
     @IBAction private func allWordsDidTap(_ sender: Any) {
-        coordinator?.showAllWords(viewModel: WordListViewModel(dataBaseManager: DataBaseManager()))
+        coordinator?.showAllWords(for: .allWords)
     }
     @IBAction func wordCheckDidTap(_ sender: Any) {
         coordinator?.wordCheck()

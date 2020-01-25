@@ -34,10 +34,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-h1-8C6">
-                                    <rect key="frame" x="338" y="394" width="20" height="22"/>
+                                    <rect key="frame" x="357" y="394" width="1" height="22"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ep8-Yi-Hmn">
-                                            <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1" height="22"/>
                                             <state key="normal" image="menuButton"/>
                                             <connections>
                                                 <action selector="menuDidTap:" destination="-1" eventType="touchUpInside" id="aal-92-jah"/>
@@ -82,6 +82,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="menuButton" destination="ep8-Yi-Hmn" id="S8W-On-FXG"/>
                 <outlet property="titleLabel" destination="MUx-rj-1hG" id="Z7K-ha-mnR"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="141.96428571428569"/>
